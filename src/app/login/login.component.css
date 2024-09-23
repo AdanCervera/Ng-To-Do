@@ -1,0 +1,33 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+  }
+  
+  p-card {
+    width: 400px;
+  }
+  
+  .p-field {
+    margin-bottom: 1.5rem;
+  }
+
+  .login-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Opcional para agregar espacio entre los campos */
+  }
+  
+  .login-container form input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+  

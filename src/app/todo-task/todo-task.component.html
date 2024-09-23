@@ -1,0 +1,66 @@
+<p-confirmDialog />
+<p-toast />
+<div class="card flex justify-content-center">
+    <p-card header="Tasks">
+        <form [formGroup]="taskForm" (ngSubmit)="onSaving()">
+            <div class="p-field">
+              <p-floatLabel>
+                <input
+                  id="task"
+                  type="text"
+                  pInputText
+                  formControlName="task"
+                />
+                <label for="task">Tarea</label>
+              </p-floatLabel>
+              <div
+                *ngIf="
+                  taskForm.get('task')?.invalid &&
+                  taskForm.get('task')?.touched
+                "
+                class="error-message"
+              >
+                Task is required and must be at least 3 characters.
+              </div>
+            </div>
+      <br>
+            <p-button
+              type="submit"
+              label="Guardar"
+              [disabled]="taskForm.invalid"
+            />
+            
+          </form>
+    </p-card>
+</div>
+<p></p>
+
+<div class="card">
+    <p-table [value]="tasks" [tableStyle]="{ 'min-width': '50rem' }">
+        <ng-template pTemplate="header">
+            <tr>
+                <th>Id</th>
+                <th>Description</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-task>
+            <tr>
+                <td>{{ task.id }}</td>
+                <td>{{ task.title }}</td>
+                <td *ngIf="!task.isDone"><p-tag value="Pending" /></td>
+                <td *ngIf="task.isDone"><p-tag value="Done" severity="success" class="p-tag-success" /></td>
+                <td>
+                    <div class="flex align-items-center justify-content-center gap-2">
+                        <div class="flex align-items-center justify-content-center gap-2">
+                        <p-button icon="pi pi-ellipsis-v" [link]="true" (click)="openMenu($event, menu, task)" aria-label="Options"></p-button>
+                        <p-contextMenu #menu [model]="items" appendTo="body"></p-contextMenu>
+                    </div>
+                </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</div>
+

@@ -1,0 +1,51 @@
+# Compiled output
+dist/
+tmp/
+out-tsc/
+build/
+
+# Dependencies
+node_modules/
+
+# Angular specific
+.angular/cache/
+.angular/config.json
+
+# IDEs and editors
+.vscode/
+.idea/
+.project
+.classpath
+.c9/
+*.launch
+.settings/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+
+# Miscellaneous
+.DS_Store
+Thumbs.db
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Environment files
+.env
+.env.*.local
+
+# Angular CLI specific
+.angular/cache/
+.angular/config.json
+
+# Mac system files
+.DS_Store
+
+# Temporary files
+*.tmp
+*.bak
+*.swp
+
+# Test coverage
+coverage/

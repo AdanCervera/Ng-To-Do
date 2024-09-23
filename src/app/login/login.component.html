@@ -1,0 +1,54 @@
+<div class="login-container">
+  <p-card header="ToDo App">
+    <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <div class="p-field">
+        <p-floatLabel>
+          <input
+            id="username"
+            type="text"
+            pInputText
+            formControlName="username"
+          />
+          <label for="username">Username</label>
+        </p-floatLabel>
+        <div
+          *ngIf="
+            loginForm.get('username')?.invalid &&
+            loginForm.get('username')?.touched
+          "
+          class="error-message"
+        >
+          Username is required and must be at least 3 characters.
+        </div>
+      </div>
+
+      <div class="p-field">
+        <p-floatLabel>
+          <input
+            id="password"
+            type="password"
+            pInputText
+            formControlName="password"
+          />
+          <label for="password">Password</label>
+        </p-floatLabel>
+        <div
+          *ngIf="
+            loginForm.get('password')?.invalid &&
+            loginForm.get('password')?.touched
+          "
+          class="error-message"
+        >
+          Password is required and must be at least 6 characters.
+        </div>
+      </div>
+
+      <p-button
+        type="submit"
+        label="Login"
+        [disabled]="loginForm.invalid"
+      />
+      
+    </form>
+  </p-card>
+</div>
